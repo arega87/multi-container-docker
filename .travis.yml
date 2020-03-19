@@ -1,0 +1,24 @@
+sudo: required 
+language: generic 
+services:
+    - docker
+
+before_install:
+    - docker build -t anis/react-test -f ./client/Dockerfile.dev ./client
+
+script:
+    - docker run -e CI=true anis/react-test npm test -- --coverage
+
+
+after_success:
+    - docker build -t anis/multi-client ./client
+    - docker build -t anis/multi-nginx ./nginx
+    - docker build -t anis/multi-server ./server
+    - docker build -t anis/multi-worker ./worker
+
+    - echo "$DOCKER_PASSWORD" | dockerlogin -u "$DOCKER_ID" --password-stdin
+
+    - docker push anis/multi-client
+    - docker push anis/multi-nginx 
+    - docker push anis/multi-server
+    - docker push anis/multi-worker
