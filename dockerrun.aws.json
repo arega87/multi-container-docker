@@ -1,40 +1,40 @@
 {
     "AWSEBDockerrunVersion": 2,
-    "containerDefinitions": [
+    "ContainerDefinitions": [
         {
-            "name": "client",
-            "image": "anis/multi-client",
-            "hostname": "client",
+            "Name": "client",
+            "Image": "anis/multi-client",
+            "Hostname": "client",
             "essential": false,
-            "memory": 128
+            "Memory": 128
         },
         {
-            "name": "serer",
-            "image": "anis/multi-server",
-            "hostname": "api",
+            "Name": "serer",
+            "Image": "anis/multi-server",
+            "Hostname": "api",
             "essential": false,
-            "memory": 128
+            "Memory": 128
         },
         {
-            "name": "worker",
-            "image": "anis/multi-worker",
-            "hostname": "worker",
+            "Name": "worker",
+            "Image": "anis/multi-worker",
+            "Hostname": "worker",
             "essential": false,
-            "memory": 128
+            "Memory": 128
         },
         {
-            "name": "nginx",
-            "image": "anis/multi-nginx",
-            "hostname": "nginx",
+            "Name": "nginx",
+            "Image": "anis/multi-nginx",
+            "Hostname": "nginx",
             "essential": true,
-            "memory": 128,
-            "portMappings": [
+            "Memory": 128,
+            "PortMappings": [
                 {
-                    "hostPort": 80,
-                    "containerPort": 80
+                    "HostPort": 80,
+                    "ContainerPort": 80
                 }
             ],
-            "links": ["client", "server"] 
+            "Links": ["client", "server"] 
         }
     ]
 
