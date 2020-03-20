@@ -5,28 +5,28 @@
             "Name": "client",
             "Image": "anis/multi-client",
             "Hostname": "client",
-            "essential": false,
+            "Essential": false,
             "Memory": 128
         },
         {
             "Name": "server",
             "Image": "anis/multi-server",
             "Hostname": "api",
-            "essential": false,
+            "Essential": false,
             "Memory": 128
         },
         {
             "Name": "worker",
             "Image": "anis/multi-worker",
             "Hostname": "worker",
-            "essential": false,
+            "Essential": false,
             "Memory": 128
         },
         {
             "Name": "nginx",
             "Image": "anis/multi-nginx",
             "Hostname": "nginx",
-            "essential": true,
+            "Essential": true,
             "Memory": 128,
             "PortMappings": [
                 {
