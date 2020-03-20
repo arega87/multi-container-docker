@@ -9,7 +9,7 @@
             "Memory": 128
         },
         {
-            "Name": "serer",
+            "Name": "server",
             "Image": "anis/multi-server",
             "Hostname": "api",
             "essential": false,
