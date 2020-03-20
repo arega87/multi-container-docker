@@ -9,7 +9,6 @@ before_install:
 script:
     - docker run -e CI=true anis/react-test npm test -- --coverage
 
-
 after_success:
     - docker build -t anis/multi-client ./client
     - docker build -t anis/multi-nginx ./nginx
@@ -24,7 +23,6 @@ after_success:
     - docker push anis/multi-worker
 
 deploy:
-    edge: true
     provider: elasticbeanstalk
     region: eu-central-1
     app: multi-docker
@@ -34,4 +32,5 @@ deploy:
     on: 
         branch: master
     access_key_id: $AWS_ACCESS_KEY
-    secret_access_key: $AWS_SECRET_KEY
+    secret_access_key: 
+        secure: $AWS_SECRET_KEY
